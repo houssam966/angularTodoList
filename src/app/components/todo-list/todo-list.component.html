@@ -1,0 +1,29 @@
+<div class="jumbotron" style="padding:35px 0px; justify-content: center">
+  <h4 class="text-center">Origin To Do List App</h4>
+  <h6 class="text-center">By Houssam Mahlous</h6>
+</div>
+
+<input type="text" class="todo-input" placeholder="Anything else?" [(ngModel)]="todoTitle" (keyup.enter)="onAdd()">
+<div class="item" *ngFor="let todo of todoService.todosFiltered()" @fade>
+  <div class="item-left">
+    <input type="checkbox" [(ngModel)]="todo.done" (change)="todoService.doneEdit(todo)">
+    <div *ngIf="!todo.editing" class="item-label" [ngClass]="{ 'completed' : todo.done }" (dblclick)="todoService.onEdit(todo)">{{ todo.label }}</div>
+    <input *ngIf="todo.editing" type="text" class="item-edit" [(ngModel)]="todo.label" (blur)="todoService.doneEdit(todo)" (keyup.enter)="todoService.doneEdit(todo)" (keyup.esc)="todoService.cancelEdit(todo)"autofocus>
+  </div>
+  <div class="remove-item" (click)="todoService.onDelete(todo.id)">
+    &times;
+  </div>
+</div>
+
+<div class="bottom-container">
+  <div>{{ todoService.getRemaining() }} tasks left!</div>
+</div>
+
+<div class="bottom-container">
+  <div>
+    <button [ngClass]="{'active': todoService.filter === 'all'}" (click)="todoService.filter='all'">All</button>
+    <button [ngClass]="{'active': todoService.filter === 'active'}" (click)="todoService.filter='active'">Active</button>
+    <button [ngClass]="{'active': todoService.filter === 'completed'}" (click)="todoService.filter='completed'">Completed</button>
+  </div>
+
+</div>
