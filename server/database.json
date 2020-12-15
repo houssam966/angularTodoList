@@ -1,8 +1,38 @@
 {
   "tasks": [
     {
+      "id": 4,
+      "label": "Learn Angular",
+      "done": true
+    },
+    {
+      "id": 5,
+      "label": "Read tasks carefully",
+      "done": true
+    },
+    {
       "id": 6,
-      "label": "fgjygh",
+      "label": "Implement To Do List",
+      "done": true
+    },
+    {
+      "id": 7,
+      "label": "Connect with server",
+      "done": true
+    },
+    {
+      "id": 8,
+      "label": "Run unit tests",
+      "done": true
+    },
+    {
+      "id": 9,
+      "label": "Submit Solution in 1 hour and 56 mins",
+      "done": true
+    },
+    {
+      "id": 10,
+      "label": "Wait for response",
       "done": false
     }
   ]
